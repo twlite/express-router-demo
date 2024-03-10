@@ -18,33 +18,3 @@ export const POST = (req, res) => {
 
     return res.json(userData);
 }
-
-export const PATCH = (req, res) => {
-    const { params, body } = req;
-
-    if (!users.has(params.id)) {
-        return res.status(404).json({ message: 'User not found' });
-    }
-
-    const userData = users.get(params.id);
-    const updatedUserData = {
-        ...userData,
-        ...body
-    };
-
-    users.set(params.id, updatedUserData);
-
-    return res.json(updatedUserData);
-}
-
-export const DELETE = (req, res) => {
-    const { params } = req;
-
-    if (!users.has(params.id)) {
-        return res.status(404).json({ message: 'User not found' });
-    }
-
-    users.delete(params.id);
-
-    return res.status(204).end();
-}
