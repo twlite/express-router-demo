@@ -1,4 +1,4 @@
-import { createUserSchema } from "../dto";
+import { createUserSchema } from "../dto.js";
 
 const updateUserSchema = createUserSchema.partial();
 
