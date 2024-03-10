@@ -4,8 +4,10 @@ import { join } from 'node:path'
 import { setup } from '../src/index.js'
 
 const app = express();
-
 const path = join(import.meta.dirname, 'api');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 await setup(app, path);
 
